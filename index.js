@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = "mongodb+srv://firstMern:dbPassword@cluster0.qbwrs.mongodb.net/runoutDB?retryWrites=true&w=majority";
+const uri = 'mongodb://localhost:27017/runout_db';
 // 'mongodb://localhost:27017/runout_db';
 // "mongodb+srv://firstMern:dbPassword@cluster0.qbwrs.mongodb.net/runoutDB?retryWrites=true&w=majority";
 // process.env.MONGODB_ATLAS_URI || 

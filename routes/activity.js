@@ -27,4 +27,17 @@ router.route('/add').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req, res) => {
+    Activity.findById(req.params.id).then(activity => res.json(activity))
+        .catch(err => res.status(400).json('Error in getting the activity: ' + err));
+})
+
+
+router.delete('/:id', (req, res) => {
+    Activity.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Activity deleted.'))
+        .catch(err => res.status(400).json('Error in deleting activity: ' + err));
+});
+
+
 module.exports = router;

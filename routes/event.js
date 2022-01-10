@@ -22,4 +22,18 @@ router.route('/add').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req,res) => {
+    Event.findById(req.params.id).then(event => res.json(event))
+    .catch(err => res.status(400).json('Error in getting the event: ' + err));
+})
+
+
+router.delete('/:id', (req, res) => {
+    Event.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Event deleted.'))
+        .catch(err => res.status(400).json('Error in deleting event: ' + err));
+});
+
+
+
 module.exports = router;
